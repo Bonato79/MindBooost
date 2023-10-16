@@ -6,7 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ZenActivity extends AppCompatActivity {
+class FlorestaActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
@@ -18,7 +18,7 @@ public class ZenActivity extends AppCompatActivity {
         Button playButton = findViewById(R.id.btn_play);
         Button pauseButton = findViewById(R.id.btn_pause);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.som_de_fogueira);
+        mediaPlayer = MediaPlayer.create(this, R.raw.som_da_floresta);
 
         playButton.setOnClickListener(view -> mediaPlayer.start());
 
