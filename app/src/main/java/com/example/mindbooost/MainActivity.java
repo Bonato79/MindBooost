@@ -15,9 +15,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button diaryButton = findViewById(R.id.btnDiary);
         Button zenButton = findViewById(R.id.btnZen);
+        Button consultaButton = findViewById(R.id.scheduleButton);
 
         diaryButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, DiarioActivity.class)));
 
         zenButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ZenActivity.class)));
+
+        consultaButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ConsultaActivity.class)));
+
     }
 }

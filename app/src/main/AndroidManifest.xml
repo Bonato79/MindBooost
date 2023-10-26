@@ -19,5 +19,6 @@
         <activity android:name=".DiarioActivity" />
         <activity android:name=".ZenActivity" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
