@@ -58,6 +58,9 @@
         android:backgroundTint="#FDF9F9"
         android:text="Agendar Consulta"
         android:textAlignment="center"
+        android:textColor="#020202"
+        android:textColorHint="#0C0C0C"
+        android:textColorLink="#A025B5"
         android:textStyle="bold"
         tools:ignore="NotSibling,UnknownId" />
 
@@ -95,6 +98,9 @@
         android:backgroundTint="#FFFFFF"
         android:text="Zen"
         android:textAlignment="center"
+        android:textColor="#121111"
+        android:textColorHighlight="#9C27B0"
+        android:textColorHint="#000000"
         android:textStyle="bold" />
 
 </RelativeLayout>

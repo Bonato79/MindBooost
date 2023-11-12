@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="audio_selection" type="id">audio_selection</item>
+    <item name="audioselection" type="id">audio_selection</item>
+</resources>

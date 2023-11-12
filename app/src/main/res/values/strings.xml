@@ -2,4 +2,6 @@
     <string name="app_name">MindBooost</string>
     <string name="bem_vindo_ao">BEM VINDO AO</string>
     <string name="diario">DIARIO</string>
+    <string name="agendar_consulta">Agendar Consulta</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -3,84 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#85B5FE">
 
-
-    <Spinner
-        android:id="@+id/doctorSpinner"
-        android:layout_width="315dp"
-        android:layout_height="61dp"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241"
-        tools:ignore="MissingConstraints" />
 
     <DatePicker
         android:id="@+id/datePicker"
         android:layout_width="318dp"
         android:layout_height="396dp"
-        android:layout_below="@id/doctorSpinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.719"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="UnknownId" />
 
     <ImageView
         android:id="@+id/doctorImage"
         android:layout_width="105dp"
         android:layout_height="106dp"
+        android:importantForAccessibility="no"
         android:src="@drawable/img_medico"
-        app:layout_constraintBottom_toTopOf="@id/doctorSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/doctorDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Dr.Smith<br>CRM:20331"
-        app:layout_constraintEndToEndOf="parent"
-        app:layout_constraintStartToStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/doctorImage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="151dp" />
 
     <ImageView
         android:id="@+id/doctorImag2"
         android:layout_width="123dp"
         android:layout_height="111dp"
+        android:contentDescription="TODO"
         android:src="@drawable/img_medico"
-        app:layout_constraintBottom_toTopOf="@id/doctorSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
 
 
     <ImageView
         android:id="@+id/doctorImage4"
         android:layout_width="121dp"
         android:layout_height="114dp"
+        android:contentDescription="@string/todo"
         android:src="@drawable/img_medico"
-        app:layout_constraintBottom_toTopOf="@id/doctorSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -89,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/datePicker"
         android:layout_centerHorizontal="true"
-        android:text="Agendar Consulta"
+        android:text="@string/agendar_consulta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -97,4 +73,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.932"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

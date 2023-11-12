@@ -5,10 +5,12 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#85B5FE"
     android:baselineAligned="false"
-    android:padding="16dp"
     android:gravity="center"
+    android:padding="16dp"
     tools:context=".ZenActivity">
+
 
     <TextView
         android:id="@+id/textView2"
@@ -17,25 +19,17 @@
         android:lineSpacingExtra="8sp"
         android:text="Tela Zen"
         android:textAlignment="center"
+        android:textColor="#F1EEEE"
         android:textSize="48sp"
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintBottom_toTopOf="@+id/btn_play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintVertical_bias="0.082"
         tools:ignore="TextSizeCheck" />
-    <RadioGroup
-        android:id="@+id/audio_selection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-
-    </RadioGroup>
-
 
     <Button
         android:id="@+id/btn_play"
@@ -66,66 +60,68 @@
         android:id="@+id/imageView2"
         android:layout_width="111dp"
         android:layout_height="106dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/audio_selection1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
+        app:layout_constraintVertical_bias="0.153"
         app:srcCompat="@drawable/fones_de_ouvido" />
 
     <RadioButton
-        android:id="@+id/audio1"
-        android:layout_width="154dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="16dp"
-        android:button="@drawable/praia"
-        android:text="Audio 1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/audio_selection1"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="188dp"
+        android:foreground="@drawable/fogueira"
+        android:text="audio1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <RadioButton
-        android:id="@+id/audio2"
-        android:layout_width="126dp"
-        android:layout_height="138dp"
-        android:button="@drawable/fogueira"
-        android:text="Audio 2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/audio_selection2"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:foreground="@drawable/floresta"
+        android:text="audio2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toBottomOf="@+id/audio_selection1"
+        app:layout_constraintVertical_bias="0.465" />
 
     <RadioButton
-        android:id="@+id/audio3"
-        android:layout_width="151dp"
-        android:layout_height="98dp"
-        android:button="@drawable/cachoeira"
-        android:text="Audio3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/audio_selection3"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="76dp"
+        android:foreground="@drawable/cachoeira"
+        android:text="audio3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pause"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/audio_selection1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.218" />
 
     <RadioButton
-        android:id="@+id/audio4"
-        android:layout_width="125dp"
-        android:layout_height="129dp"
-        android:button="@drawable/floresta"
-        android:text="RadioButton"
-        android:textColor="#1B5E20"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/audio_selection4"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="36dp"
+        android:foreground="@drawable/praia"
+        android:text="audio4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pause"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/audio_selection2"
+        app:layout_constraintTop_toBottomOf="@+id/audio_selection3"
+        app:layout_constraintVertical_bias="0.509" />
 
     <!-- Adicione elementos para controle de áudio, como botões de reprodução/pausa, barra de progresso, etc., conforme necessário. -->
 
