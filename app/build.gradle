@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.mindbooost"
         minSdk 25
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -26,7 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildToolsVersion '30.0.2'
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {

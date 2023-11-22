@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="audio_selection" type="id">audio_selection</item>
-    <item name="audioselection" type="id">audio_selection</item>
+    <item name="audio1" type="id"/>
+    <item name="audio2" type="id"/>
+    <item name="audio3" type="id"/>
+    <item name="audio4" type="id"/>
 </resources>

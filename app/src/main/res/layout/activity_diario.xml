@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#85B5FE"
-    tools:context=".DiaryActivity">
+    tools:context=".DiarioActivity">
 
     <EditText
         android:id="@+id/edtDiaryEntry"

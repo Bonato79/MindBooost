@@ -20,25 +20,25 @@ public class ZenActivity extends AppCompatActivity {
 
         Button playButton = findViewById(R.id.btn_play);
         Button pauseButton = findViewById(R.id.btn_pause);
-        audioSelection = findViewById(R.id.audio_selection1);
+        audioSelection = findViewById(R.id.audio1);
 
         mediaPlayer = new MediaPlayer();
 
         // Defina o áudio inicial (você pode definir a seleção padrão como desejar)
         mediaPlayer = MediaPlayer.create(this, R.raw.som_de_fogueira);
-        audioSelection.check(R.id.audio_selection1);
+        audioSelection.check(R.id.audio1);
 
         // Defina o áudio inicial (você pode definir a seleção padrão como desejar)
         mediaPlayer = MediaPlayer.create(this, R.raw.som_de_cachoera);
-        audioSelection.check(R.id.audio_selection2);
+        audioSelection.check(R.id.audio2);
 
         // Defina o áudio inicial (você pode definir a seleção padrão como desejar)
         mediaPlayer = MediaPlayer.create(this, R.raw.som_da_floresta);
-        audioSelection.check(R.id.audio_selection3);
+        audioSelection.check(R.id.audio3);
 
         // Defina o áudio inicial (você pode definir a seleção padrão como desejar)
         mediaPlayer = MediaPlayer.create(this, R.raw.som_praia);
-        audioSelection.check(R.id.audio_selection4);
+        audioSelection.check(R.id.audio4);
 
         playButton.setOnClickListener(view -> {
             if (mediaPlayer.isPlaying()) {
@@ -47,13 +47,13 @@ public class ZenActivity extends AppCompatActivity {
                 mediaPlayer = new MediaPlayer();
 
                 int selectedAudioId = audioSelection.getCheckedRadioButtonId();
-                if (selectedAudioId == R.id.audio_selection1) {
+                if (selectedAudioId == R.id.audio1) {
                     mediaPlayer = MediaPlayer.create(this, R.raw.som_praia);
-                } else if (selectedAudioId == R.id.audio_selection2) {
+                } else if (selectedAudioId == R.id.audio2) {
                     mediaPlayer = MediaPlayer.create(this, R.raw.som_de_fogueira);
-                } else if (selectedAudioId == R.id.audio_selection3) {
+                } else if (selectedAudioId == R.id.audio3) {
                     mediaPlayer = MediaPlayer.create(this, R.raw.som_de_cachoera);
-                } else if (selectedAudioId == R.id.audio_selection4) {
+                } else if (selectedAudioId == R.id.audio4) {
                     mediaPlayer = MediaPlayer.create(this, R.raw.som_da_floresta);
                 }
 
