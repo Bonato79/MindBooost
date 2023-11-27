@@ -22,6 +22,5 @@ public class MainActivity extends AppCompatActivity {
         zenButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ZenActivity.class)));
 
         consultaButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ConsultaActivity.class)));
-
     }
 }
