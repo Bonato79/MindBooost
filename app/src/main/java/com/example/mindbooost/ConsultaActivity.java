@@ -1,6 +1,8 @@
 package com.example.mindbooost;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,18 +18,15 @@ import java.util.List;
 import java.util.UUID;
 
 public class ConsultaActivity extends AppCompatActivity {
-    private final Spinner doctorSpinner;
+    private Spinner doctorSpinner;
     private DatePicker datePicker;
-
-    public ConsultaActivity(Spinner doctorSpinner) {
-        this.doctorSpinner = doctorSpinner;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
 
+        doctorSpinner = findViewById(R.id.doctorImage);
         datePicker = findViewById(R.id.datePicker);
         Button scheduleButton = findViewById(R.id.scheduleButton);
 
@@ -42,6 +41,16 @@ public class ConsultaActivity extends AppCompatActivity {
         doctorSpinner.setAdapter(adapter);
 
         scheduleButton.setOnClickListener(view -> {
+            // Chama o método de agendamento
+            performAppointmentScheduling();
+        });
+    }
+
+    private void performAppointmentScheduling() {
+        // Seu código de agendamento aqui
+        new Thread(() -> {
+            // Seu código de agendamento dentro desta thread
+
             // Seleciona o médico selecionado do spinner
             Doctor selectedDoctor = (Doctor) doctorSpinner.getSelectedItem();
 
@@ -61,44 +70,57 @@ public class ConsultaActivity extends AppCompatActivity {
 
             // Salva os detalhes da consulta em um banco de dados ou servidor
             Appointment appointment = new Appointment(appointmentID, selectedDoctor.getName(), selectedDate, videoCallLink);
-            saveAppointment();
 
             // Conecta ao banco de dados
             DatabaseConnection connection = new DatabaseConnection();
 
-            // Prepara a instrução SQL
-            String sql = "INSERT INTO appointments (appointmentID, doctorName, appointmentDate, videoCallLink) VALUES (?, ?, ?, ?)";
-            try {
-                PreparedStatement statement = connection.prepareStatement(sql);
+            // Verifique se a conexão é bem-sucedida
+            if (connection.isConnected()) {
+                // Prepara a instrução SQL
+                String sql = "INSERT INTO appointments (appointmentID, doctorName, appointmentDate, videoCallLink) VALUES (?, ?, ?, ?)";
+                try {
+                    PreparedStatement statement = connection.prepareStatement(sql);
 
-                // Define os parâmetros da instrução
-                statement.setString(1, appointment.getAppointmentID());
-                statement.setString(2, appointment.getDoctorName());
-                statement.setString(3, appointment.getAppointmentDate());
-                statement.setString(4, appointment.getVideoCallLink());
+                    // Define os parâmetros da instrução
+                    statement.setString(1, appointment.getAppointmentID());
+                    statement.setString(2, appointment.getDoctorName());
+                    statement.setString(3, appointment.getAppointmentDate());
+                    statement.setString(4, appointment.getVideoCallLink());
 
-                // Executa a instrução SQL
-                statement.executeUpdate();
+                    // Executa a instrução SQL
+                    statement.executeUpdate();
 
-                // Fecha a instrução e a conexão
-                statement.close();
-                connection.close();
+                    // Fecha a instrução e a conexão
+                    statement.close();
+                    connection.close();
 
-                // Exibe uma mensagem de confirmação para o usuário
-                String message = "Consulta agendada com " + selectedDoctor.getName() +
-                        " para " + selectedDate + "\nDescrição: " + selectedDoctor.getDescription() +
-                        "\nLink da videochamada: " + videoCallLink;
-                Toast.makeText(ConsultaActivity.this, message, Toast.LENGTH_LONG).show();
+                    // Atualiza a UI com uma mensagem de confirmação para o usuário
+                    runOnUiThread(() -> {
+                        String message = "Consulta agendada com " + selectedDoctor.getName() +
+                                " para " + selectedDate + "\nDescrição: " + selectedDoctor.getDescription() +
+                                "\nLink da videochamada: " + videoCallLink;
+                        Toast.makeText(ConsultaActivity.this, message, Toast.LENGTH_LONG).show();
+                    });
 
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(ConsultaActivity.this, "Erro ao agendar a consulta", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showConfirmationMessage(selectedDoctor, selectedDate, videoCallLink, "Erro ao agendar a consulta: " + e.getMessage());
+                }
+
+
+            } else {
+                // Trate a falha na conexão
+                runOnUiThread(() -> Toast.makeText(ConsultaActivity.this, "Falha na conexão com o banco de dados", Toast.LENGTH_SHORT).show());
             }
-        });
+        }).start();
     }
-
-    private void saveAppointment() {
-        // Lógica para salvar a consulta no banco de dados ou servidor
+    private void showConfirmationMessage(Doctor selectedDoctor, String selectedDate, String videoCallLink, String s) {
+        new Handler(Looper.getMainLooper()).post(() -> {
+            String message = "Consulta agendada com " + selectedDoctor.getName() +
+                    " para " + selectedDate + "\nDescrição: " + selectedDoctor.getDescription() +
+                    "\nLink da videochamada: " + videoCallLink;
+            Toast.makeText(ConsultaActivity.this, message, Toast.LENGTH_LONG).show();
+        });
     }
 
     private static class Doctor {

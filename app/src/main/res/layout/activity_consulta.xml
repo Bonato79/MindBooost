@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#85B5FE">
+    android:background="#85B5FE"
+    tools:context=".ConsultaActivity">
 
 
     <DatePicker
@@ -19,45 +20,21 @@
         app:layout_constraintVertical_bias="0.62"
         tools:ignore="UnknownId" />
 
-    <ImageView
+    <Spinner
         android:id="@+id/doctorImage"
-        android:layout_width="105dp"
-        android:layout_height="106dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:importantForAccessibility="no"
+        android:minHeight="48dp"
         android:src="@drawable/img_medico"
         app:layout_constraintBottom_toTopOf="@+id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.120000005"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/doctorImag2"
-        android:layout_width="123dp"
-        android:layout_height="111dp"
-        android:contentDescription="TODO"
-        android:src="@drawable/img_medico"
-        app:layout_constraintBottom_toTopOf="@+id/datePicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,HardcodedText,MissingConstraints" />
-
-
-    <ImageView
-        android:id="@+id/doctorImage4"
-        android:layout_width="121dp"
-        android:layout_height="114dp"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/img_medico"
-        app:layout_constraintBottom_toTopOf="@+id/datePicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/scheduleButton"

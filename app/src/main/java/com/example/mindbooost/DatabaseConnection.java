@@ -9,4 +9,8 @@ public class DatabaseConnection {
 
     public void close() {
     }
+
+    public boolean isConnected() {
+        return false;
+    }
 }
